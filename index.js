@@ -42,7 +42,7 @@ puppeteer.launch({
 			return document.querySelector("span[data-bind='html:stocklabel']").innerText;
 		});
 
-		if(result != "Returning to stock 3-4 weeks" && result != "") {
+		if(result != "Returning to stock 3-4 weeks" && result != "Returning to stock 2-3 months" && result != "") {
 			console.info(result)
 			bot.channels.cache.get(channel).send(`<@${tagUser}>, it's in stock!`);
 		} else {
