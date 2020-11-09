@@ -9,6 +9,7 @@ const channel = process.env.CHANNEL;
 const errorLog = process.env.ERROR_CHANNEL;
 const tagUser = process.env.TAG_USER;
 const url = process.env.URL;
+const stockLabels = ["Returning to stock 3-4 weeks", "Returning to stock 2-3 months"];
 
 bot.login(discordApi);
 bot.on('ready', () => {
@@ -42,11 +43,11 @@ puppeteer.launch({
 			return document.querySelector("span[data-bind='html:stocklabel']").innerText;
 		});
 
-		if(result != "Returning to stock 3-4 weeks" && result != "Returning to stock 2-3 months" && result != "") {
+		if(!stockLabels.includes(result)) {
 			console.info(result)
-			bot.channels.cache.get(channel).send(`<@${tagUser}>, it's in stock!`);
+			bot.channels.cache.get(channel).send(`<@${tagUser}>, ${result}`);
 		} else {
-			console.info("Not in stock.")
+			console.info(result)
 			bot.channels.cache.get(channel).send(result);
 		}
 	} catch(err) {
