@@ -9,7 +9,10 @@ const channel = process.env.CHANNEL;
 const errorLog = process.env.ERROR_CHANNEL;
 const tagUser = process.env.TAG_USER;
 const url = process.env.URL;
-const stockLabels = ["Returning to stock 3-4 weeks", "Returning to stock 2-3 months"];
+const stockLabels = [
+	"Returning to stock 3-4 weeks", 
+	"Returning to stock 2-3 months"
+];
 
 bot.login(discordApi);
 bot.on('ready', () => {
