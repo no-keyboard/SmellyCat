@@ -11,7 +11,8 @@ const tagUser = process.env.TAG_USER;
 const url = process.env.URL;
 const stockLabels = [
 	"Returning to stock 3-4 weeks", 
-	"Returning to stock 2-3 months"
+	"Returning to stock 2-3 months",
+	"Returning to stock next week"
 ];
 
 bot.login(discordApi);
